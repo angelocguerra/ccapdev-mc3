@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="static/css/index.css" />
+<script src="static/js/index.js" defer> </script>
+<script src="static/js/forms.js" defer> </script>
+<div id="contentContainer">
+    <h1> Product Shipping Management </h1>
+
+    <div class="tabs"> 
+        <button class="tablink" onclick="openForm(event, 'registerContainer')"> Register Product </button>
+        <button class="tablink" onclick="openForm(event, 'statusContainer')"> Update Status </button>
+    </div>
+    <!-- Form Tab -->
+    <div id="registerContainer" class="tabcontent">
+        <form id="registerForm" name="registerForm">
+            <input id="r_serialNo" name="serialno" type="text" placeholder="Serial Number" />
+            <input id="productName" name="name" type="text" placeholder="Product Name" />
+            <label for="purchaseDate"> Purchase Date </label>
+            <input id="purchaseDate" name="date" type="date" />
+            <p class="error" id="r_error">  </p>
+            <input class="submitBtn" id="registerBtn" type="submit" value="Register"/>
+        </form>
+    </div>
+    <!-- Status Tab -->
+    <div id="statusContainer" class="tabcontent" hidden>
+        <form id="statusForm" name="statusForm">
+            <input id="s_serialNo" name="serialno" type="text" placeholder="Serial Number" />
+            <label for="statusDropdown"> Status </label>
+            <select id="statusDropdown" name="status">
+                <option value="Processing"> Processing </option>
+                <option value="Shipped"> Shipped </option>
+                <option value="Delivered"> Delivered </option>
+            </select>
+            <p class="error" id="s_error"> </p>
+            <input class="submitBtn" id="updateBtn" type="submit" value="Update"/>
+        </form>
+    </div>
+    <hr>
+    
+    <div id="productList">
+        <!-- TODO: write your code here -->
+        {{#each transitions}}
+            {{> product this}}
+        {{/each}}
+        <!-- 
+            Uncomment the div elements below to see what the product items would look like
+            on the view itself
+        -->
+        <!-- 
+        <div class="productContainer">
+            <img class="icon" src="static/images/package-variant-closed.png" />
+            <div class="productInfo">
+                <span class="snLabel"> Serial No: 534121 </span>
+                <span class="nameLabel"> Asus ROG x550b Motherboard </span>
+                <span class="pDateLabel"> Purchase Date: 12/17/23 </span>
+            </div>
+            <span class="productStatus">
+            <div class="statusDot Processing"> </div>
+            <span class="statusText"> Processing </span>
+            </span>
+        </div>
+        <div class="productContainer">
+            <img class="icon" src="static/images/package-variant-closed.png" />
+            <div class="productInfo">
+                <span class="snLabel"> Serial No: 12345 </span>
+                <span class="nameLabel"> Ryzen 5 5600x </span>
+                <span class="pDateLabel"> Purchase Date: 12/15/23 </span>
+            </div>
+            <span class="productStatus">
+            <div class="statusDot Shipped"> </div>
+            <span class="statusText"> Shipped </span>
+            </span>
+        </div>
+        <div class="productContainer">
+            <img class="icon" src="static/images/package-variant-closed.png" />
+            <div class="productInfo">
+                <span class="snLabel"> Serial No: 6235 </span>
+                <span class="nameLabel"> Nvidia RTX 3080 FE </span>
+                <span class="pDateLabel"> Purchase Date: 11/12/13 </span>
+            </div>
+            <span class="productStatus">
+            <div class="statusDot Delivered"> </div>
+            <span class="statusText"> Delivered </span>
+            </span>
+        </div> 
+        -->
+    </div>
+</div>
