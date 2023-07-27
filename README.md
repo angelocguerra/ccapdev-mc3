@@ -9,4 +9,4 @@ A webpage recreating a Product Shipping management app designed to test AJAX, Cl
 ---
 
 Created by: Angelo Guerra<br>
-Date Submitted: June 2023
+Date Submitted: July 2023
